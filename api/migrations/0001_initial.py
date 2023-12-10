@@ -10,16 +10,15 @@ class Migration(migrations.Migration):
     dependencies = [
     ]
 
-    operations = [
-        migrations.CreateModel(
-            name='Room',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('xona', models.IntegerField()),
-                ('booked', models.BooleanField(default=False)),
-                ('start', models.DateTimeField(blank=True, null=True)),
-                ('end', models.DateTimeField(blank=True, null=True)),
-            ],
-        ),
-    ]
+    def create_room_booking_models(apps, schema_manager):
+        """
+        Creates the room booking models table.
+        """
+        apps.create_model('api_room', 'Room', (
+            'id', models.AutoField(primary_key=True),
+            'name', models.CharField(max_length=100),
+            'xona', models.IntegerField(),
+            'booked', models.BooleanField(default=False),
+            'start', models.DateTimeField(null=True, blank=True),
+            'end', models.DateTimeField(null=True, blank=True)
+        ))
