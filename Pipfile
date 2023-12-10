@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==4.2"
+djangorestframework = "*"
+whitenoise = "*"
+psycopg2-binary = "*"
+selenium = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
